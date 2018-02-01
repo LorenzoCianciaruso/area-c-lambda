@@ -1,0 +1,14 @@
+service: areac
+
+provider:
+  name: aws
+  runtime: nodejs6.10
+
+functions:
+  is-areac-active-today:
+    handler: handler.isAreaCActiveToday
+    events:
+      - http:
+          path: is-areac-active-today
+          method: get
+          cors: true
