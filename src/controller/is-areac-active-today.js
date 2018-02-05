@@ -4,7 +4,6 @@ class Controller {
   constructor() {}
 
   isActive(now) {
-
     const todayHours = this.getAreaCHoursToday(now);
 
     if(now.isBetween(todayHours.startsAt, todayHours.endsAt)) {
