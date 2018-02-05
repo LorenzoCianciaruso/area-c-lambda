@@ -30,7 +30,7 @@ jobs:
       - image: softinstigate/serverless
 
     steps:
-      - run: ls
+      - run: checkout
       - run: serverless deploy
 
 workflows:
