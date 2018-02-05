@@ -24,10 +24,13 @@ jobs:
       - run: npm test
 
   deploy:
+    working_directory: ~/repo
+
     docker:
       - image: softinstigate/serverless
 
     steps:
+      - run: ls
       - run: serverless deploy
 
 workflows:
