@@ -1,7 +1,5 @@
 version: 2
 jobs:
-  build:
-
   test:
     docker:
       - image: circleci/node:7.10
@@ -29,7 +27,8 @@ jobs:
     docker:
       - image: softinstigate/serverless
 
-    - run: serverless deploy
+    steps:
+      - run: serverless deploy
 
 workflows:
   version: 2
