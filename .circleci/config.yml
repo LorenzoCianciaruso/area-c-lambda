@@ -1,8 +1,8 @@
 version: 2
 jobs:
-  build:
+  test:
     docker:
-      - image: softinstigate/serverless
+      - image: circleci/node:7.10
 
     working_directory: ~/repo
 
@@ -24,11 +24,14 @@ jobs:
       - run: npm test
 
   deploy:
+    docker:
+      - image: softinstigate/serverless
+
     - run: serverless deploy
 
 workflows:
   version: 2
-  test-and-deploy:
+  test_and_deploy:
     jobs:
       - test
       - deploy:
