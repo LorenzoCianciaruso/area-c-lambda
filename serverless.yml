@@ -6,7 +6,7 @@ provider:
 
 functions:
   is-areac-active-today:
-    handler: handler.isAreaCActiveToday
+    handler: src/handlers/handler.isAreaCActiveToday
     events:
       - http:
           path: is-areac-active-today

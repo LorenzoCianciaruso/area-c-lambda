@@ -1,6 +1,6 @@
 'use strict';
 
-const Controller = require('./controller/is-areac-active-today'),
+const Controller = require('../controller/is-areac-active-today'),
       moment = require('moment');
 
 module.exports.isAreaCActiveToday = (event, context, callback) => {

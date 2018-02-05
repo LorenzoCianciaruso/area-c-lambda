@@ -1,11 +1,11 @@
-const isAreaCActiveToday = require('./handler').isAreaCActiveToday,
+const isAreaCActiveToday = require('../../src/handlers/handler').isAreaCActiveToday,
       chai = require('chai'),
       expect = require('chai').expect,
       asserttype = require('chai-asserttype');
 
 chai.use(asserttype);
 
-describe('avout handler.js', () => {
+describe('about handler.js', () => {
   it('should return a valid value', (done) => {
     var event = {}, context = {};
 

@@ -1,4 +1,4 @@
-const Controller = require('./is-areac-active-today'),
+const Controller = require('../../src/controller/is-areac-active-today'),
  expect = require('chai').expect,
  moment = require('moment');
 

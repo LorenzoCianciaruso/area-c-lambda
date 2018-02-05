@@ -2,9 +2,9 @@
   "name": "areac-lambda",
   "version": "1.0.0",
   "description": "A serverless service for areaC",
-  "main": "handler.js",
+  "main": "src/handlers/handler.js",
   "scripts": {
-    "test": "mocha *.test.js ./**/*.test.js"
+    "test": "mocha ./test/**/*.test.js"
   },
   "keywords": [
     "serverless",
