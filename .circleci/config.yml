@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  test:
+  build:
     docker:
       - image: circleci/node:7.10
 
@@ -33,7 +33,7 @@ workflows:
   version: 2
   test_and_deploy:
     jobs:
-      - test
+      - build
       - deploy:
           requires:
             - test
