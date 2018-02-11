@@ -48,7 +48,6 @@ describe('about isActive', () => {
     });
   });
 
-
   describe('on Saturdays and Sundays', () => {
     it('should return not active if saturday', () => {
       const now = moment('2018-01-27');
