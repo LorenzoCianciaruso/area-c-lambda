@@ -1,16 +1,29 @@
-var moment = require('moment');
+var moment = require('moment'),
+    bankHolidays = require('../../res/bank-holidays-2018').bankHolidaysDates;
 
 class Controller {
-  constructor() {}
+
+  constructor() {
+    this.todayIsActive = { result: true, description: 'Yes' };
+    this.todayIsNotActive = { result: false, description: 'No' };
+  }
 
   isActive(now) {
     const todayHours = this.getAreaCHoursToday(now);
 
-    if(now.isBetween(todayHours.startsAt, todayHours.endsAt)) {
-      return { result: true, description: 'Yes' };
+    if(this.isBankHoliday(now)){
+      return this.todayIsNotActive;
     }
 
-    return { result: false, description: 'No' };
+    if(now.isBetween(todayHours.startsAt, todayHours.endsAt)) {
+      return this.todayIsActive;
+    }
+
+    return this.todayIsNotActive;
+  }
+
+  isBankHoliday(now) {
+    return bankHolidays.has(now.format('YYYY-MM-DD'));
   }
 
   getAreaCHoursToday(now) {

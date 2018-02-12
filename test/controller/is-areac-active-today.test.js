@@ -50,15 +50,28 @@ describe('about isActive', () => {
 
   describe('on Saturdays and Sundays', () => {
     it('should return not active if saturday', () => {
-      const now = moment('2018-01-27');
+      const now = moment('2018-01-27T10:00');
 
       expect(controller.isActive(now)).to.deep.equal(notActiveExpectation);
     });
 
     it('should return not active if sunday', () => {
-      const now = moment('2018-01-28');
+      const now = moment('2018-01-28T10:00');
 
       expect(controller.isActive(now)).to.deep.equal(notActiveExpectation);
+    });
+  });
+
+  describe('on Bank Holidays', () => {
+
+    const bankHolidaysSet = require('../../res/bank-holidays-2018').bankHolidaysDates,
+          bankHolidays = Array.from(bankHolidaysSet);
+
+    bankHolidays.forEach((bankHoliday) => {
+      it('should always return non active', () => {
+          const now = moment(bankHoliday + 'T10:00');
+          expect(controller.isActive(now)).to.deep.equal(notActiveExpectation);
+      });
     });
   });
 });
